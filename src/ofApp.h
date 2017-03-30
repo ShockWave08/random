@@ -28,5 +28,5 @@ private:
 
      vector<float> X, Y;
      ofImage jewel;
-  
+  	
 };

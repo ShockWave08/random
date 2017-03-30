@@ -1,10 +1,33 @@
 #include "ofApp.h"
+#include <random>
 
-//--------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------
 void ofApp::setup(){
-jewel.load("diamond.png");// image to use (must be stored in "random/bin/data" folder)
-X = {500, 1000, 30, 100, 300, 200, 750, 380 };// set of x-coordinates for jewel
-Y = {630, 400, 900,40, 200, 0, 90, 30}; //set of y-coordinates for jewel
+
+	//int xmin = 0, xmax = 1200, ymin = 0, ymax = 970;
+
+	//random_device rd;
+	//mt19937 eng(rd()); // different sequence
+	//uniform_int_distribution<> x_cor(xmin, xmax);
+	//uniform_int_distribution<> y_cor(ymin, ymax);
+
+	//for(int i = 0; i < 100; i++){
+	//	X.push_back(x_cor(eng));
+	//	Y.push_back(y_cor(eng));
+	//}
+	
+	
+	 float xmean = 1000.0f, xstan_devia = 15.0f, ymean = 800.0f, ystan_devia = 15.0f;
+	                                                                                                                                                                   
+      random_device rd;                                                                                                                                                                                          
+      mt19937 eng(rd()); // different sequence                                                         
+      normal_distribution<> x_cor(xmean, xstan_devia);
+      normal_distribution<> y_cor(ymean, ystan_devia);                                                                                                                                                         
+                                                                                                                                                                                                                        
+        for(int i = 0; i < 100; i++){                                                                                                                                                                                   
+               X.push_back(x_cor(eng)); 
+			Y.push_back(y_cor(eng));
+		}
 }
 
 //--------------------------------------------------------------
